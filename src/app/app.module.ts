@@ -5,6 +5,9 @@ import { GridComponent } from './mycomponents/grid/grid.component';
 import { jqxGridModule } from 'jqwidgets-ng/jqxgrid';
 import { HttpClientModule } from '@angular/common/http';
 import {HookComponent} from './mycomponents/hook/hook.component';
+import { RowDetailsComponent } from './mycomponents/row-details/row-details.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 // import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 // import {jqxDropDownListModule} from 'jqwidgets-ng/jqxdropdownlist';
@@ -16,12 +19,15 @@ import {HookComponent} from './mycomponents/hook/hook.component';
   declarations: [
     AppComponent,
     GridComponent,
-    HookComponent
+    HookComponent,
+    RowDetailsComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     jqxGridModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
     // AppRoutingModule,
     // NgbModule
     // jqxWindowModule,
@@ -31,8 +37,5 @@ import {HookComponent} from './mycomponents/hook/hook.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  counter = 0
-  update(){
-    this.counter++
-  }
+  
 }

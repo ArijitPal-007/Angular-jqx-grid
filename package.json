@@ -22,9 +22,9 @@
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
-    "jqwidgets-ng": "^9.0.0",
+    "jqwidgets-ng": "^9.1.7",
     "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
+    "tslib": "^2.8.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

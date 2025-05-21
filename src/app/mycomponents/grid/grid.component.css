@@ -3,42 +3,14 @@
     background: #391e9b !important;
     color: #fff !important;
     text-align: center;
-  }
-  
-  
-  
-  /* Left-aligned cell content */
-  .jqx-grid-cell-left-align {
-    color: red !important; /* Or any desired style */
-    font-weight: bold !important;
-    /* background:skyblue; */
-    text-align: center;
-  }
-
-
-  .popup {
-  position: fixed;
-  top: 30%;
-  left: 35%;
-  background: white;
-  padding: 20px;
-  border: 2px solid #333;
-  box-shadow: 0 0 10px gray;
-  z-index: 1000;
 }
 
-  
-  /* Pinned cell styling
-  .jqx-grid-cell-pinned {
-    background-color: #f92a2a !important;
-  }
-  
-  .jqx-grid-cell-pinned:hover {
-    background-color: #e0e0e0 !important;
-  }
-  
-  .jqx-grid-cell-pinned-selected {
-    background-color: #d0d0d0 !important;
-  } */
-  
+/* Left-aligned cell content */
+.jqx-grid-cell-left-align {
+    color: red !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+
   
