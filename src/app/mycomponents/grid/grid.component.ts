@@ -15,6 +15,8 @@ export class GridComponent implements OnInit {
   columns: any = [];
   showPopup = false;
   selectedRow: any = null;
+  selectedCountry: string = '';
+  countryCount: number = 0;
   private clickTimeout: any = null;
   private lastClickTime: number = 0;
 
@@ -85,6 +87,15 @@ export class GridComponent implements OnInit {
       console.log('Single Click - Row Data:', rowData);
       this.selectedRow = rowData;
       this.showPopup = true;
+      
+      // Update country count when row is selected
+      // this.selectedCountry = rowData.place;
+      // this.countryCount = this.dataAdapter.records.filter(
+      //   (item: any) => item.place === this.selectedCountry
+      // ).length;
+      // console.log(`Count of ${this.selectedCountry}:`, this.countryCount);
+      this.selectedCountry = rowData.place
+      this.countryCount = this.dataAdapter.records.filter((item:any)=>item.place===this.selectedCountry).length
     }, 300);
   }
 
@@ -115,12 +126,10 @@ export class GridComponent implements OnInit {
         age: rowData.Age
       }
     })
+// console.log('row details:', userData);
 
-  
-    // console.log('row details:', userData);
-    
-  
-  }
+}
+
 
   closePopup(): void {
     this.showPopup = false;
