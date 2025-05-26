@@ -8,6 +8,9 @@ import {HookComponent} from './mycomponents/hook/hook.component';
 import { RowDetailsComponent } from './mycomponents/row-details/row-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { PieComponent } from './mycomponents/pie/pie.component';
+import {ChartsModule} from "ng2-charts";
+
 
 // import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 // import {jqxDropDownListModule} from 'jqwidgets-ng/jqxdropdownlist';
@@ -20,14 +23,16 @@ import { RouterModule } from '@angular/router';
     AppComponent,
     GridComponent,
     HookComponent,
-    RowDetailsComponent
+    RowDetailsComponent,
+    PieComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     jqxGridModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    ChartsModule
     // AppRoutingModule,
     // NgbModule
     // jqxWindowModule,

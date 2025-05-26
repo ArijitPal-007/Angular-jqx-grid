@@ -1,18 +1,14 @@
-[
-  {
-    "ProductID": 1,
-    "ProductName": "Chai",
-    "QuantityPerUnit": "10 boxes x 20 bags",
-    "UnitPrice": 18,
-    "UnitsInStock": 39,
-    "Discontinued": false
-  },
-  {
-    "ProductID": 2,
-    "ProductName": "Chang",
-    "QuantityPerUnit": "24 - 12 oz bottles",
-    "UnitPrice": 19,
-    "UnitsInStock": 17,
-    "Discontinued": false
-  }
-]
+{
+  "data": [
+    { "Id": 1, "Name": "John Doe", "place": "USA", "Age": 30 },
+    { "Id": 2, "Name": "Jane Smith", "place": "USA", "Age": 25 },
+    { "Id": 2, "Name": "maxwall", "place": "USA", "Age": 31 },
+    { "Id": 3, "Name": "Sam Johnson", "place": "LONDON", "Age": 20 },
+    { "Id": 4, "Name": "William", "place": "China", "Age": 33 },
+    { "Id": 4, "Name": "shan", "place": "China", "Age": 27 },
+    { "Id": 5, "Name": "Abort", "place": "LONDON", "Age": 25 },
+    { "Id": 6, "Name": "Smith", "place": "kolkata", "Age": 21 },
+    { "Id": 7, "Name": "Van Der", "place": "South Africa", "Age": 18 },
+    { "Id": 8, "Name": "Taylor", "place": "kolkata", "Age": 26 }
+  ]
+}

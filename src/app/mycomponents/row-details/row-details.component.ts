@@ -35,7 +35,7 @@ export class RowDetailsComponent implements OnInit {
     }) */
     
     let formData = this.location.getState()
-    this.rowData.Name=formData['Name']
+    this.rowData.Name=formData['name']
     this.rowData.place=formData['place']
     this.rowData.Age=formData['age']
     

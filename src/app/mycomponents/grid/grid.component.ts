@@ -33,11 +33,13 @@ export class GridComponent implements OnInit {
       ],
       localdata: [
         { Id: 1, Name: 'John Doe', place: 'USA', Age: 30 },
-        { Id: 2, Name: 'Jane Smith', place: 'UK', Age: 25 },
+        { Id: 2, Name: 'Jane Smith', place: 'USA', Age: 25 },
+        { Id: 2, Name: 'maxwall', place: 'USA', Age: 31 },
         { Id: 3, Name: 'Sam Johnson', place: 'LONDON', Age: 20 },
         { Id: 4, Name: 'William', place: 'China', Age: 33 },
+        { Id: 4, Name: 'shan', place: 'China', Age: 27 },
         { Id: 5, Name: 'Abort', place: 'LONDON', Age: 25 },
-        { Id: 6, Name: 'Smith', place: 'Australia', Age: 21 },
+        { Id: 6, Name: 'Smith', place: 'kolkata', Age: 21 },
         { Id: 7, Name: 'Van Der', place: 'South Africa', Age: 18 },
         { Id: 8, Name: 'Taylor', place: 'Kolkata', Age: 26 },
       ]
