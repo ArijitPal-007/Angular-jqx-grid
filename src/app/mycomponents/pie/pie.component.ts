@@ -36,6 +36,15 @@ export class PieComponent implements OnInit {
         this.label = this.pieChartLabels[index] as string;
         this.value = this.pieChartData[index];
         
+        let totalData = data.data
+        let filtererData = totalData.filter((val: any) =>{
+          if(val.place?.indexOf(this.label) > -1){
+            return val
+          }
+        })
+        console.log(filtererData)
+        // this.pieChartData = filtererData
+        
         // this.labelValueData.emit({ label: this.label, value: this.value });
       }
     }
