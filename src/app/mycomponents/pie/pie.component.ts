@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import * as data from '../../../assets/data.json';
+import { ChartOptions, ChartType } from 'chart.js';
+// import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-pie',
@@ -7,61 +9,66 @@ import * as data from '../../../assets/data.json';
   styleUrls: ['./pie.component.css'],
 })
 export class PieComponent implements OnInit {
+
+  // @Output() labelValueData = new EventEmitter<{ label: string, value: number }>();
+
+  
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
-  public pieChartType = 'pie';
-  public color = [
-    'red',
-    'blue',
-    'yellow',
-    'green',
-    'pink',
-    'orange',
-    'purple',
-    'black',
-  ];
+  public pieChartType: ChartType = 'pie';
+  public value: number = 0;
+  public label: string = '';
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'top',
+      labels: {
+        fontSize: 20,
+        fontColor: '#333'
+      }
+    },
+   
+    onClick: (event, elements) => {
+      if (elements && elements.length > 0) {
+        const index = (elements[0] as any)._index;
+        this.label = this.pieChartLabels[index] as string;
+        this.value = this.pieChartData[index];
+        
+        // this.labelValueData.emit({ label: this.label, value: this.value });
+      }
+    }
+  };
+
+  public color = ['red', 'blue', 'yellow', 'green', 'pink', 'orange', 'purple', 'black'];
+
   public pieChartColors = [
     {
-      backgroundColor: [
-        this.color.map(col=>col)
-
-      ],
+      backgroundColor: this.color,
+      borderColor: 'white',
+      borderWidth: 3,
     },
   ];
+  
 
   constructor() {}
 
   ngOnInit(): void {
     const place = data.data.map((item) => item.place);
-    console.log(place);
-
     this.pieChartLabels = [...new Set(place)];
-    // console.log(unique);
-
+    
     this.pieChartData = this.pieChartLabels.map(
-      (city) => place.filter((item) => item == city).length
+      (city) => place.filter((item) => item === city).length
     );
 
-
-    // const color = ["red","purple","yellow","green","pink","blue","orange","black"]
-    // const getColor = color.map(col=> col)
-    // console.log(getColor);
-
-    // console.log(count);
-
-    //  const len = place.length
-    //  let store = []
-    //  let unique = []
-    //  for(let i=0;i<len;i++){
-    //   store.push(place[i])
-    //   // console.log(store);
-    //   for(let j=0;j<store.length;j++){
-
-    //     if(store[j] === place[i]){
-    //       unique.push([place[i]])
-    //     }
-    //   }
-
-    //   console.log("unique",unique[i]);
+    
+    
+    console.log('Initialized data:', {
+      labels: this.pieChartLabels,
+      data: this.pieChartData
+    });
   }
 }
+  
+

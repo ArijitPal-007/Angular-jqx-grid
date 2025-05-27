@@ -12,4 +12,9 @@ export class AppComponent {
   update() {
     this.counter++;
   }
+
+  
+
+ 
+
 }

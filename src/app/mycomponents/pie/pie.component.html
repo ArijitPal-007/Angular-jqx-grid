@@ -1,10 +1,17 @@
-<div style="display: block; width: 50%; margin: auto;">
-    <h1 style="text-align: center;">This Is Pie Chart</h1>
-    <canvas baseChart
-      [data]="pieChartData"
-      [labels]="pieChartLabels"
-      [chartType]="pieChartType"
-      [colors]="pieChartColors">
-    </canvas>
-  </div>
-  
+<div style="display: block; width: 50%; margin: auto; height: 350px;">
+  <h1 style="text-align: center;">This Is Pie Chart</h1>
+
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [colors]="pieChartColors"
+          [options]="pieChartOptions"
+          [legend]="true">
+  </canvas>
+</div>
+
+
+<div *ngIf="value > 0">
+  <p><strong>{{ label }}</strong> - {{ value }}</p>
+</div>

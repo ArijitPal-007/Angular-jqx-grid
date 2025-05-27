@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation,EventEmitter,Output } from '@angular/core';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,16 @@ import { Router } from '@angular/router';
 })
 export class GridComponent implements OnInit {
   @ViewChild('grid', { static: false }) grid!: jqxGridComponent;
+  // @Output() placeSelected = new EventEmitter<string>();
+
+  // ongetData(event: any): void {
+  //   const rowData = this.grid.getrowdata(event.args.rowindex);
+  //   this.placeSelected.emit(rowData.place); // Send data to parent
+  //   console.log(rowData);
+  //   console.log("click");
+    
+  // }
+
 
   dataAdapter: any;
   columns: any = [];
@@ -90,12 +100,7 @@ export class GridComponent implements OnInit {
       this.selectedRow = rowData;
       this.showPopup = true;
       
-      // Update country count when row is selected
-      // this.selectedCountry = rowData.place;
-      // this.countryCount = this.dataAdapter.records.filter(
-      //   (item: any) => item.place === this.selectedCountry
-      // ).length;
-      // console.log(`Count of ${this.selectedCountry}:`, this.countryCount);
+     
       this.selectedCountry = rowData.place
       this.countryCount = this.dataAdapter.records.filter((item:any)=>item.place===this.selectedCountry).length
     }, 300);
@@ -108,19 +113,7 @@ export class GridComponent implements OnInit {
 
     const rowData = this.grid.getrowdata(event.args.rowindex);
     console.log('Double Click - Row Data:', rowData);
-    
-    // Navigate to detail page with ID in URL
-
-    // this.router.navigate(["/row-details",rowData.Id]){}
-     /* this.router.navigate([`/row-details/${rowData.Id}`],      
-        {
-          queryParams : {
-          name: rowData.Name,
-          place: rowData.place,
-          age: rowData.Age
-        }
-      }
-    ); */
+  
     this.router.navigateByUrl(`/row-details/${rowData.Id}`, {
       state: {
         name: rowData.Name,

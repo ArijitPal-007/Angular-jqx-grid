@@ -9,14 +9,12 @@ import { RowDetailsComponent } from './mycomponents/row-details/row-details.comp
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { PieComponent } from './mycomponents/pie/pie.component';
-import {ChartsModule} from "ng2-charts";
-
+import { ChartsModule } from 'ng2-charts';
 
 // import { jqxWindowModule } from 'jqwidgets-ng/jqxwindow';
 // import {jqxDropDownListModule} from 'jqwidgets-ng/jqxdropdownlist';
 // import { AppRoutingModule } from './app-routing.module';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 
 @NgModule({
   declarations: [

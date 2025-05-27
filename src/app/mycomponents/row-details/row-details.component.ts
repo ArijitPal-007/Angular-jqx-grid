@@ -22,17 +22,7 @@ export class RowDetailsComponent implements OnInit {
     console.log('Route param (id) received:', id);
     this.rowData.Id = id;
 
-    // Get query parameters using snapshot
-    // const queryParams = this.route.snapshot.queryParamMap;
-    // console.log('Query params received:', queryParams);
-
-    /* this.route.queryParamMap.subscribe((res) => {
-      console.log(res)
-     
-      this.rowData.Name = res.get('name');
-      this.rowData.place = res.get('place');
-      this.rowData.Age = res.get('age'); 
-    }) */
+   
     
     let formData = this.location.getState()
     this.rowData.Name=formData['name']
