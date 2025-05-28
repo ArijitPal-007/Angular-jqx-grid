@@ -2,7 +2,7 @@
 
 
 
-<app-grid></app-grid>
+<app-grid [filteredData]="store"></app-grid>
 
 <div style="display: block; width: 50%; margin: auto; height: 350px;">
   <h1 style="text-align: center;">This Is Pie Chart</h1>
@@ -20,4 +20,21 @@
 
 <div *ngIf="value > 0">
   <p><strong>{{ label }}</strong> - {{ value }}</p>
+  
 </div>
+
+<div *ngIf="store.length>0" class="div">
+  <table>
+    <tr class="heading">
+      <th>Name</th>
+      <th>Place</th>
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let item of store">
+      <td>{{item.Name}}</td>
+      <td>{{item.place}}</td>
+      <td>{{item.Age}}</td>
+    </tr>
+  </table>
+</div>
+

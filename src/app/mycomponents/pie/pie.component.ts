@@ -11,6 +11,7 @@ import { ChartOptions, ChartType } from 'chart.js';
 export class PieComponent implements OnInit {
 
   // @Output() labelValueData = new EventEmitter<{ label: string, value: number }>();
+  @Output() filteredData:EventEmitter<any> = new EventEmitter()
 
   
   public pieChartLabels: string[] = [];
@@ -18,6 +19,7 @@ export class PieComponent implements OnInit {
   public pieChartType: ChartType = 'pie';
   public value: number = 0;
   public label: string = '';
+  public store: any[] = [];
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -36,16 +38,14 @@ export class PieComponent implements OnInit {
         this.label = this.pieChartLabels[index] as string;
         this.value = this.pieChartData[index];
         
-        let totalData = data.data
-        let filtererData = totalData.filter((val: any) =>{
+        let totalData = data.data;
+        this.store = totalData.filter((val: any) => {
           if(val.place?.indexOf(this.label) > -1){
-            return val
+            return val;
           }
-        })
-        console.log(filtererData)
-        // this.pieChartData = filtererData
+        });
+        this.filteredData.emit(this.store);
         
-        // this.labelValueData.emit({ label: this.label, value: this.value });
       }
     }
   };

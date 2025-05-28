@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation,EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation,EventEmitter,Output,Input, OnChanges, SimpleChanges } from '@angular/core';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { Router } from '@angular/router';
 
@@ -8,8 +8,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./grid.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnInit,OnChanges {
   @ViewChild('grid', { static: false }) grid!: jqxGridComponent;
+  @Input() filteredData:any[]
+
+  dataAdapter: any;
+  columns: any = [];
+  showPopup = false;
+  selectedRow: any = null;
+  selectedCountry: string = '';
+  countryCount: number = 0;
+  private clickTimeout: any = null;
+  private lastClickTime: number = 0;
+  source: any;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("grid data",this.filteredData);
+
+
+    this.source.localdata = this.filteredData
+    
+  
+    if (this.grid) {
+      this.grid.updatebounddata();
+    }
+    
+
+
+  }
+
+  
+ 
   // @Output() placeSelected = new EventEmitter<string>();
 
   // ongetData(event: any): void {
@@ -20,20 +49,11 @@ export class GridComponent implements OnInit {
     
   // }
 
-
-  dataAdapter: any;
-  columns: any = [];
-  showPopup = false;
-  selectedRow: any = null;
-  selectedCountry: string = '';
-  countryCount: number = 0;
-  private clickTimeout: any = null;
-  private lastClickTime: number = 0;
-
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const source = {
+
+    this.source = {
       datatype: 'array',
       datafields: [
         { name: 'Id', type: 'string' },
@@ -55,7 +75,7 @@ export class GridComponent implements OnInit {
       ]
     };
   
-    this.dataAdapter = new jqx.dataAdapter(source);
+    this.dataAdapter = new jqx.dataAdapter(this.source);
   
     this.columns = [
       { text: 'Id', datafield: 'Id', width: '33%' },
@@ -124,6 +144,8 @@ export class GridComponent implements OnInit {
 // console.log('row details:', userData);
 
 }
+
+
 
 
   closePopup(): void {
